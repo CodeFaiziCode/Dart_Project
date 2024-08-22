@@ -57,3 +57,35 @@ void show() {
     }
   }
 }
+
+void search() {
+  if (total == 0) {
+    print("\n\n          NO DATA IS ENTERED");
+    print("          ******************\n\n\n");
+  }
+  print("     Press 1 For Search By Student Roll No :");
+  print("     Press 2 For Search By Course : ");
+  int ans = int.parse(stdin.readLineSync()!);
+  if (ans == 1) {
+    {
+      stdout.write(
+          "\n          ENTER THE ROLL NUMBER OF STUDENT WHICH YOU WANT TO SEARCH : ");
+      String rollno = stdin.readLineSync()!;
+      for (int i = 0; i < total; i++) {
+        if (rollno == stdRoll[i]) {
+          print("\n          Name     :  ${stdName[i]}");
+          print("          Roll no  :  ${stdRoll[i]}");
+          print("          Subject  :  ${stdSubj[i]}");
+          print("          Contact  :  ${stdCont[i]}\n\n\n");
+          print("          ************************");
+          print("          * SEARCHING SUCCESSFUL *");
+          print("          ************************\n\n");
+        }
+      }
+    }
+  } else if (ans == 2) {
+    showStudentsByCourse();
+  } else {
+    print("invalid input");
+  }
+}
