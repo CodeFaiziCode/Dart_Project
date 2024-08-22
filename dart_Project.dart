@@ -41,3 +41,19 @@ void enter() {
     total = choice + total;
   }
 }
+
+void show() {
+  if (total == 0) {
+    print("\n\n          NO DATA IS ENTERED");
+    print("          ******************\n\n\n");
+  } else {
+    for (int i = 0; i < total; i++) {
+      print("\n          DATA OF STUDENT ${i + 1}");
+      print("          *****************\n\n");
+      print("          Name     :  ${stdName[i]}");
+      print("          Roll no  :  ${stdRoll[i]}");
+      print("          Subject  :  ${stdSubj[i]}");
+      print("          Contact  :  ${stdCont[i]}\n\n\n");
+    }
+  }
+}
