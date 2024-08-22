@@ -89,3 +89,40 @@ void search() {
     print("invalid input");
   }
 }
+
+void update() {
+  if (total == 0) {
+    print("\n\n          NO DATA IS ENTERED");
+    print("          ******************\n\n\n");
+  } else {
+    stdout.write(
+        "\n          ENTER THE ROLL NUMBER OF STUDENT WHICH YOU WANT TO UPDATE : ");
+    String rollno = stdin.readLineSync()!;
+    print(
+        "\n          ************************************************************\n");
+    for (int i = 0; i < total; i++) {
+      if (rollno == stdRoll[i]) {
+        print("\n          PREVIOUS DATA");
+        print("          *************\n\n");
+        print("          DATA OF STUDENT ${i + 1}");
+        print("          *****************\n");
+        print("\n          Name     :  ${stdName[i]}");
+        print("          Roll no  :  ${stdRoll[i]}");
+        print("          Subject  :  ${stdSubj[i]}");
+        print("          Contact  :  ${stdCont[i]}");
+        print("\n          ENTER NEW DATA");
+        print("          **************\n");
+        stdout.write("\n          Enter Name     :  ");
+        stdName[i] = stdin.readLineSync()!;
+        stdout.write("\n          Enter Roll no  :  ");
+        stdRoll[i] = stdin.readLineSync()!;
+        stdout.write("\n          Enter Subject  :  ");
+        stdSubj[i] = stdin.readLineSync()!;
+        stdout.write("\n          Enter Contact  :  ");
+        stdCont[i] = stdin.readLineSync()!;
+        print("\n          RECORD UPDATED SUCCESSFULLY\n");
+      }
+    }
+    print("         Invalid roll number\n");
+  }
+}
