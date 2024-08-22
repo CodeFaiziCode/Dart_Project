@@ -126,3 +126,44 @@ void update() {
     print("         Invalid roll number\n");
   }
 }
+
+void deleterecord() {
+  if (total == 0) {
+    print("\n\n          NO DATA IS ENTERED");
+    print("          ******************\n\n\n");
+  } else {
+    int a;
+    stdout.write("\n\n           PRESS 1 TO DELETE ALL STUDENT RECORD\n");
+    stdout.write("          PRESS 2 TO DELETE SPECIFIC STUDENT RECORD\n");
+    stdout.write("          *********************************\n\n");
+    stdout.write("          ENTER YOUR CHOICE : ");
+    a = int.parse(stdin.readLineSync()!);
+    if (a == 1) {
+      total = 0;
+      print("\n\n          ALL RECORD DELETED SUCCESSFULLY");
+      print("          *******************************\n\n");
+    } else if (a == 2) {
+      stdout.write(
+          "\n          ENTER THE ROLL NUMBER OF STUDENT WHICH YOU WANT TO DELETE : ");
+      String rollno = stdin.readLineSync()!;
+      print(
+          "\n          ************************************************************");
+      for (int i = 0; i < total; i++) {
+        if (rollno == stdRoll[i]) {
+          for (int j = i; j < total; j++) {
+            stdName[j] = stdName[j + 1];
+            stdRoll[j] = stdRoll[j + 1];
+            stdSubj[j] = stdSubj[j + 1];
+            stdCont[j] = stdCont[j + 1];
+          }
+          total--;
+          print("\n          YOUR REQUIRED RECORD ID DELETED");
+          print("          *******************************\n\n");
+        }
+      }
+    } else {
+      print("          INVALID INPUT");
+      print("          *************\n\n");
+    }
+  }
+}
