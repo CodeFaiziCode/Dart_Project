@@ -261,3 +261,33 @@ login() {
     }
   }
 }
+
+void main() {
+  print("\n                          *************");
+  print("                            *  WELCOME  *");
+  print("                            *************");
+  print(
+      "*********************************************************************");
+  print(
+      "*                                                                   *");
+  print(
+      "*                      STUDENT MANAGEMENT SYSTEM                     *");
+  print(
+      "*                                                                   *");
+  print(
+      "*********************************************************************");
+  print(
+      "*                                                                   *");
+
+  print("PRESS 1: ADMIN   LOGIN");
+  print("PRESS ANY KEY :  Exit\n");
+
+  stdout.write("Enter Your Answer :  ");
+  String button = stdin.readLineSync()!;
+  if (button == "1") {
+    login();
+  } else {
+    print("Thanks For visiting");
+    exitCode;
+  }
+}
