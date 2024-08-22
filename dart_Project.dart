@@ -167,3 +167,97 @@ void deleterecord() {
     }
   }
 }
+
+void showStudentsByCourse() {
+  if (total == 0) {
+    print("\n\n          NO DATA IS ENTERED");
+    print("          ******************\n\n\n");
+  } else {
+    stdout.write("Enter the course name to show students: ");
+    String courseName = stdin.readLineSync()!;
+    print("\n\n          Students who selected $courseName");
+    print("          ***********************************\n");
+    for (int i = 0; i < total; i++) {
+      if (stdSubj[i].toLowerCase() == courseName.toLowerCase()) {
+        print("\n          DATA OF STUDENT ${i + 1}");
+        print("          *****************\n\n");
+        print("          Name     :  ${stdName[i]}");
+        print("          Roll no  :  ${stdRoll[i]}");
+        print("          Subject  :  ${stdSubj[i]}");
+        print("          Contact  :  ${stdCont[i]}\n\n\n");
+      }
+    }
+  }
+}
+
+login() {
+  int attempts = 4;
+  // bool islogin = false;
+
+  // while (islogin == false) {
+  while (attempts > 0) {
+    stdout.write('ENTER EMAIL : ');
+    String email = stdin.readLineSync()!;
+    stdout.write('ENTER PASSWORD : ');
+    String pass = stdin.readLineSync()!;
+
+    if ((email == "rasibahmed" && pass == "123456") ||
+        (email == "f" && pass == "123") ||
+        (email == "huzefa" && pass == "12345678"))
+    // islogin = true;
+    {
+      print("lOGIN SUCCESFULLY\n");
+
+      while (true) {
+        stdout.write("          Press 1 to Input Data\n");
+        stdout.write("          Press 2 to Display Data\n");
+        stdout.write("          Press 3 to Search Data\n");
+        stdout.write("          Press 4 to Update Data\n");
+        stdout.write("          Press 5 to Delete Data\n");
+        stdout.write("          Press 6 to exit\n\n");
+        stdout.write("          Enter Number from 1 to 6 : ");
+
+        String value = stdin.readLineSync()!;
+
+        if (value == "1") {
+          enter();
+        } else if (value == "2") {
+          show();
+        } else if (value == "3") {
+          search();
+        } else if (value == "4") {
+          update();
+        } else if (value == "5") {
+          deleterecord();
+        } else if (value == "6") {
+          print(
+              "*************************************** MADE BY *************************************");
+          print(
+              "*                                                                                     *");
+          print(
+              "*                                        RASIB                                        *");
+          print(
+              "*                                        FAIZAN                                       *");
+          print(
+              "*                                        HUZAIFA                                      *");
+          print(
+              "*                                                                                     *");
+          print(
+              "******************************* THANK YOU FOR VISITING *********************************");
+          exit(0);
+        } else {
+          print("Invalid input\n");
+        }
+      }
+    } else {
+      attempts--;
+      print("\nLOGIN FAILED\n");
+      print("You have only 4 total tries for login.\n");
+      print("Now you have only $attempts try left\n");
+      if (attempts == 0) {
+        print(
+            "Try to Remember Your Login Credentials\n If You want to Change your Email and Password ,\n Contact to Developers ");
+      }
+    }
+  }
+}
